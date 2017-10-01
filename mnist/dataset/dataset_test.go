@@ -8,23 +8,23 @@ import (
 )
 
 func TestNewDataSetFromFilesMnistTestData(test *testing.T) {
-	testSet, err := dataset.NewDataSetFromFiles("../data/t10k-images-idx3-ubyte.gz", "../data/t10k-labels-idx1-ubyte.gz")
+	dataSet, err := dataset.NewDataSetFromFiles("../data/t10k-images-idx3-ubyte.gz", "../data/t10k-labels-idx1-ubyte.gz")
 	assert.NoError(test, err)
-	assert.Equal(test, 10000, testSet.Size)
-	assert.Equal(test, 28, testSet.Width)
-	assert.Equal(test, 28, testSet.Height)
-	assert.Equal(test, 10000, len(testSet.Images))
-	assert.Equal(test, 10000, len(testSet.Labels))
+	assert.Equal(test, 10000, dataSet.Size)
+	assert.Equal(test, 28, dataSet.Width)
+	assert.Equal(test, 28, dataSet.Height)
+	assert.Equal(test, 10000, len(dataSet.Images))
+	assert.Equal(test, 10000, len(dataSet.Labels))
 }
 
 func TestNewDataSetFromFilesMnistTrainData(test *testing.T) {
-	testSet, err := dataset.NewDataSetFromFiles("../data/train-images-idx3-ubyte.gz", "../data/train-labels-idx1-ubyte.gz")
+	dataSet, err := dataset.NewDataSetFromFiles("../data/train-images-idx3-ubyte.gz", "../data/train-labels-idx1-ubyte.gz")
 	assert.NoError(test, err)
-	assert.Equal(test, 60000, testSet.Size)
-	assert.Equal(test, 28, testSet.Width)
-	assert.Equal(test, 28, testSet.Height)
-	assert.Equal(test, 60000, len(testSet.Images))
-	assert.Equal(test, 60000, len(testSet.Labels))
+	assert.Equal(test, 60000, dataSet.Size)
+	assert.Equal(test, 28, dataSet.Width)
+	assert.Equal(test, 28, dataSet.Height)
+	assert.Equal(test, 60000, len(dataSet.Images))
+	assert.Equal(test, 60000, len(dataSet.Labels))
 }
 
 func TestNewDataSetFromFilesWithBadFile(test *testing.T) {
